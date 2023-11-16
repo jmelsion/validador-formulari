@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Validador de formularis</title>
+</head>
+<body>
+    <!-- Primer ho farem d'una marena senzilla i després refactoriztzarem i afegirem funcions i més validacions -->
+    <div class="contenidor">
+        <!-- Per el form no necessitem action pq no farem submit cap a cap fitxer -->
+        <form id="form" class="form">
+            <h2>Registri's amb nosaltres</h2>
+            <div class="form-control">
+                <label for="nomusuari">Nom d'usuari</label>
+                <input type="text" id="nomusuari" placeholder="Entri el seu nom d'usuari">
+                <!-- La nostra manera de validar serà mostrant un missatge d'error-->
+                <small>Missatge d'error</small>
+            </div>
+            <!-- Copiem el div anterior 3 vegades emprant shift + fletxa avall -->
+            <!-- Per canviar totes le etiquetes que siguin igual (tots els nomusuari per email)
+                podem seleccionar l'etiqueta i fer ctrl + d (d varies vegades per seleccionar
+                totes les coincidències) -->
+            <div class="form-control">
+                <label for="email">Correu electrònic</label>
+                <!-- Podriem posar type = email i faria la seva propia valiació, la validació de HTML5,
+                    però nosaltres voler fer la nostra propia validació -->
+                <input type="text" id="email" placeholder="Entri el seu correu electrònic">
+                <small>Missatge d'error</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Contrasenya</label>
+                <!-- Aquí sí canviarem el type a password -->
+                <input type="password" id="password" placeholder="Entri la seva contrasenya">
+                <small>Missatge d'error</small>
+            </div>
+            <div class="form-control">
+                <label for="password2">Confirmi la contrasenya</label>
+                <!-- Aquí sí canviarem el type a password -->
+                <input type="text" id="password2" placeholder="Entri la seva contrasenya de nou">
+                <small>Missatge d'error</small>
+            </div>
+            <button>Submit</button>
+            <!-- En aquest punt podem llarçar la pàgina i veure quant horrorosa és!-->
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

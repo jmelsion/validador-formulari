@@ -1,0 +1,173 @@
+/* Importarem de google fonts el import per Open Sans*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Custom properties
+   Hem de definir un àmbit d'aplicació: root,
+   així podem emprar les variables a qualsevol lloc.
+ */
+:root {
+    --correcte_color:#2ecc71;
+    --error_color:#e74c3c;
+}
+
+/**********
+    01
+**********/
+* {
+    /* No vull que cap efecte de padding afecte a l'amplada de cap element. */
+    box-sizing: border-box;
+}
+
+/**********
+    02
+**********/
+body {
+    background-color: #f9fafb;
+    font-family: 'Open Sans', sans-serif;
+    /* D'aquesta manera farem que tot alló que sigui fill
+       directe del body serà un flex item.
+       En el nostre cas només en tenim un, el div contenidor.
+       La raó de pq ho feim flex és pq així podrem fàcilment
+       posar tota la estructura dels inputs just al mig, tant
+       vertical com horitzontalment. Ho podrem fer amb
+       align-item center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Si volem que quede centrat verticalment també, llavors hem
+       d'afegir una alçada (o una alçada mínima) */
+    min-height: 100vh;
+    margin: 0;
+}
+
+/**********
+    03
+**********/
+.contenidor {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    width: 400px;
+}
+
+/**********
+    05
+**********/
+h2 {
+    /* Centrem el titol. */
+    text-align: center;
+    /* Donem un marge al botton per assegurarnos
+       que no s'aferrarà als inputs. */
+    margin: 0 0 20px;
+}
+
+/**********
+    04
+**********/
+.form {
+    /* Afegim espais als costats i a dalt i baix. */
+    padding: 30px 40px;
+}
+
+/**********
+    06
+**********/
+/* Conté el label, input i small */
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    /* Ho feim relatiu pq posicionarem el small per l'error
+       de manera absolut respecte al pare i açò exigeix que
+       el pare sigui relatiu. */
+    position: relative;
+}
+
+/**********
+    07
+**********/
+.form-control label {
+    color: #777;
+    /* Per defecte van inline i així tenen la seva
+       propia linia i tiren el següent element cap
+       avall. */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/**********
+    08
+**********/
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/**********
+    09
+**********/
+/* Anem a eliminar el contorn, açò passa al focus*/
+.form-control input:focus {
+    outline: 0;
+    /* Li afegim un borde per a que quan entrem quedi 
+       clar que estem en aquell control. */
+    border-color: #777;
+}
+
+/**********
+    10
+**********/
+/* Tindrem diferents estats pels inputs segons si
+   la validació és correcta o no.
+   Una vegada posat, ho podem comprovar afegint
+   la clase al control. */
+.correcto input {
+    /* border-color: #2ecc71; */
+    border-color: var(--correcte_color);    
+}
+
+.form-control.error input {
+    /* border-color: #e74c3c; */
+    border-color: var(--error_color);
+}
+
+/**********
+    11
+**********/
+.form-control small {
+    /* color: #e74c3c; */
+    /* En aquest punt, vegent que repetim valors,
+       introduim les custom properties */
+    color: var(--error_color);
+    position: absolute; /* Respecte al control form */
+    bottom: 0;
+    left: 0;
+    visibility: hidden; /* Inicialment estaran amagats*/
+}
+
+/**********
+    11
+**********/
+.form-control.error small {
+    /* Davant d'un error, farem el text visible. */
+    visibility: visible;
+}
+
+/**********
+    12
+**********/
+.form button {
+    cursor: pointer;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    /*columns: #fff;*/
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
